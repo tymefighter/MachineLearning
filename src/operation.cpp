@@ -1,7 +1,7 @@
 #include <matrix.hpp>
 #include <operation.hpp>
 
-Matrix transpose(Matrix &mat) {
+Matrix transpose(const Matrix &mat) {
     int n = mat.getNumCols();
     int m = mat.getNumRows();
     Matrix resMat(m, n);
@@ -14,7 +14,7 @@ Matrix transpose(Matrix &mat) {
     return resMat;
 }
 
-Matrix matmul(Matrix &a, Matrix &b) {
+Matrix matmul(const Matrix &a, const Matrix &b) {
 
     if(a.getNumCols() != b.getNumRows())
         throw MatError(
@@ -38,7 +38,7 @@ Matrix matmul(Matrix &a, Matrix &b) {
     return resMat;
 }
 
-Matrix mul(Matrix &a, Matrix &b) {
+Matrix mul(const Matrix &a, const Matrix &b) {
 
     if(a.getShape() != b.getShape())
         throw MatError(
@@ -57,7 +57,7 @@ Matrix mul(Matrix &a, Matrix &b) {
     return resMat;
 }
 
-Matrix div(Matrix &a, Matrix &b) {
+Matrix div(const Matrix &a, const Matrix &b) {
 
     if(a.getShape() != b.getShape())
         throw MatError(

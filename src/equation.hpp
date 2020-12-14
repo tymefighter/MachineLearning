@@ -1,11 +1,13 @@
 #ifndef EQUATION_HPP
 #define EQUATION_HPP
 
+#include <matrix.hpp>
+
 enum Solution {NO_SOLUTION, ONE_SOLUTION, INFINITE_SOLUTIONS};
 
 Solution solveEquations(
-    Matrix &A,
-    Matrix &b,
+    const Matrix &A,
+    const Matrix &b,
     Matrix &X
 );
 

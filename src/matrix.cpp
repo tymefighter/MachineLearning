@@ -107,7 +107,11 @@ double& Matrix::operator() (int i, int j) {
     return a[i][j];
 }
 
-Matrix Matrix::operator+ (Matrix &mat) {
+const double& Matrix::operator() (int i, int j) const {
+    return a[i][j];
+}
+
+Matrix Matrix::operator+ (Matrix &mat) const {
     if(n != mat.n || m != mat.m)
         throw MatError("Addition cannot be performed - shapes do not match");
 
@@ -121,7 +125,7 @@ Matrix Matrix::operator+ (Matrix &mat) {
     return resMat;
 }
 
-Matrix Matrix::operator- (Matrix &mat) {
+Matrix Matrix::operator- (Matrix &mat) const {
     if(n != mat.n || m != mat.m)
         throw MatError("Subtraction cannot be performed - shapes do not match");
 

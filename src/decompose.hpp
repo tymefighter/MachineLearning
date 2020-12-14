@@ -3,10 +3,14 @@
 
 #include <matrix.hpp>
 
-void decomposeLU(Matrix &mat, Matrix &L, Matrix &U);
+void decomposeLU(
+    const Matrix &mat, 
+    Matrix &L, 
+    Matrix &U
+);
 
 void decomposeLUP(
-    Matrix &mat, 
+    const Matrix &mat, 
     Matrix &L, 
     Matrix &U,
     Matrix &P

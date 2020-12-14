@@ -19,6 +19,6 @@ void swapRows(Matrix &mat, int i, int j) {
         swap(mat(i, k), mat(j, k));
 }
 
-Matrix getREF(Matrix &mat) {
+Matrix getREF(const Matrix &mat) {
    
 }

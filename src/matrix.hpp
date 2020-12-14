@@ -68,19 +68,21 @@ class Matrix {
 
     ~Matrix();
 
-    inline int getNumRows() {return n;}
+    inline int getNumRows() const {return n;}
 
-    inline int getNumCols() {return m;}
+    inline int getNumCols() const {return m;}
 
-    inline Shape getShape() {return Shape(n, m);}
+    inline Shape getShape() const {return Shape(n, m);}
 
     const Matrix& operator= (const Matrix &mat);
 
     double& operator() (int i, int j);
 
-    Matrix operator+ (Matrix &mat);
+    const double& operator() (int i, int j) const;
 
-    Matrix operator- (Matrix &mat);
+    Matrix operator+ (Matrix &mat) const;
+
+    Matrix operator- (Matrix &mat) const;
     
     static Matrix identity(int n);
 

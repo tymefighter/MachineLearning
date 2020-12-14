@@ -9,7 +9,7 @@
  * @param mat Input Matrix
  * @return Row Echelon Form Matrix
  */
-Matrix getREF(Matrix &mat);
+Matrix getREF(const Matrix &mat);
 
 /**
  * Construct THE Reduced Row Echelon Form matrix from
@@ -18,6 +18,6 @@ Matrix getREF(Matrix &mat);
  * @param mat Input Matrix
  * @return Reduced Row Echelon Form Matrix
  */
-Matrix getRREF(Matrix &mat);
+Matrix getRREF(const Matrix &mat);
 
 #endif;
