@@ -42,6 +42,17 @@ Matrix::Matrix(int n_, int m_):
         }
     }
 
+Matrix::Matrix(const Matrix &mat):
+    n(mat.n), m(mat.m) {
+        a = new double *[n];
+
+        for(int i = 0;i < n;i++) {
+            a[i] = new double[m];
+            for(int j = 0;j < m;j++)
+                a[i][j] = mat.a[i][j];
+        }
+    }
+
 Matrix::Matrix(double **mat, int n_, int m_):
     n(n_), m(m_) {
         a = new double *[n];
@@ -72,6 +83,25 @@ Matrix::~Matrix() {
 }
 
 /** Overloaded Operators */
+
+const Matrix& Matrix::operator= (const Matrix &mat) {
+    for(int i = 0;i < n;i++)
+        delete a[i];
+
+    delete a;
+
+    n = mat.n;
+    m = mat.m;
+    a = new double *[n];
+    
+    for(int i = 0;i < n;i++) {
+        a[i] = new double[m];
+        for(int j = 0;j < m;j++)
+            a[i][j] = mat.a[i][j];
+    }
+
+    return *this;
+}
 
 double& Matrix::operator() (int i, int j) {
     return a[i][j];

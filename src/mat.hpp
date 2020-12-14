@@ -57,6 +57,8 @@ class Matrix {
 
     Matrix(const vector<vector<int> > &mat, int n_, int m_);
 
+    Matrix(const Matrix &mat);
+
     ~Matrix();
 
     inline int getNumRows() {return n;}
@@ -64,6 +66,8 @@ class Matrix {
     inline int getNumCols() {return m;}
 
     inline Shape getShape() {return Shape(n, m);}
+
+    const Matrix& operator= (const Matrix &mat);
 
     double& operator() (int i, int j);
 
