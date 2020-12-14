@@ -10,6 +10,8 @@ const double EPS = 1e-7;
 
 inline double fabs(double x) {return (x < 0 ? -x : x);}
 
+inline bool isZero(double x) {return fabs(x) < EPS;}
+
 /** Matrix Error */
 
 class MatError {
@@ -58,9 +60,9 @@ class Matrix {
     int n, m;
     double **a;
 
-    Matrix();
-
     public:
+
+    Matrix();
 
     Matrix(int n_, int m_);
 

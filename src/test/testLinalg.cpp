@@ -102,10 +102,53 @@ void reduceTest() {
     assert(getRREF(a) == Matrix::identity(4));
 }
 
+void equationTest() {
+
+    Matrix A, b, x;
+
+    // Test 1 - One Solution
+
+    A = Matrix({
+        {1, 2, 4},
+        {6, 2, 3},
+        {2, 4, 7}
+    });
+
+    b = Matrix({{4}, {2}, {6}});
+
+    assert(solveEquations(A, b, x) == ONE_SOLUTION);
+    assert (x == Matrix(vector<vector<double> > {{0}, {-2}, {2}}));
+
+    // Test 2 - One Solution
+
+    A = Matrix({
+        {1, 2, 4},
+        {6, 2, 3},
+        {2, 4, 7},
+        {1, 22, 41}
+    });
+
+    b = Matrix({{4}, {2}, {6}, {38}});
+
+    assert(solveEquations(A, b, x) == ONE_SOLUTION);
+    assert (x == Matrix(vector<vector<double> > {{0}, {-2}, {2}}));
+
+    // Test 3 - No Solution
+
+    // Test 4 - No Solution
+
+
+    // Test 5 - Infinite Solutions
+
+    // Test 6 - Infinite Solutions
+
+}
+
 void runTests() {
     matrixTest();
     operationTest();
     reduceTest();
+    equationTest();
 }
 
 int main() {
