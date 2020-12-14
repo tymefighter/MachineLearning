@@ -1,4 +1,4 @@
-#include <mat.hpp>
+#include <matrix.hpp>
 
 Matrix transpose(Matrix &mat);
 

@@ -1,5 +1,5 @@
 #include <vector>
-#include <mat.hpp>
+#include <matrix.hpp>
 
 using namespace std;
 
