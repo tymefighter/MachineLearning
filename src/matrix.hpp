@@ -60,6 +60,8 @@ class Matrix {
 
     Matrix(int n_, int m_);
 
+    Matrix(const Shape &shape);
+
     Matrix(double **mat, int n_, int m_);
 
     Matrix(const vector<vector<int> > &mat, int n_, int m_);

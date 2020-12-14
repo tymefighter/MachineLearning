@@ -42,6 +42,17 @@ Matrix::Matrix(int n_, int m_):
         }
     }
 
+Matrix::Matrix(const Shape &shape):
+    n(shape.n), m(shape.m) {
+        a = new double *[n];
+
+        for(int i = 0;i < n;i++) {
+            a[i] = new double[m];
+            for(int j = 0;j < m;j++)
+                a[i][j] = 0;
+        }
+    }
+
 Matrix::Matrix(const Matrix &mat):
     n(mat.n), m(mat.m) {
         a = new double *[n];
