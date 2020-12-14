@@ -1,3 +1,6 @@
+#ifndef MATRIX_HPP
+#define MATRIX_HPP
+
 #include <string>
 #include <vector>
 
@@ -86,3 +89,4 @@ class Matrix {
     static Matrix zeros(int n, int m);
 };
 
+#endif;
