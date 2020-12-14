@@ -53,7 +53,7 @@ Solution solveEquations(
 
     int n = A.getNumRows(), m = A.getNumCols();
 
-    std::vector<Value> xValue(INFINITE);
+    std::vector<Value> xValue(m, INFINITE);
     x = Matrix(m, 1);
 
     // Construct Augmented Matrix

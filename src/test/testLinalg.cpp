@@ -133,15 +133,77 @@ void equationTest() {
     assert(solveEquations(A, b, x) == ONE_SOLUTION);
     assert (x == Matrix(vector<vector<double> > {{0}, {-2}, {2}}));
 
-    // Test 3 - No Solution
+    // Test 3 - One Solution
+
+    A = Matrix({
+        {3, 0, 0, 4, 0},
+        {0, 2, 3, 45, 0},
+        {2, 0, 0, 0, 11},
+        {0, 3, 0, 3, 0},
+        {13, 14, 0, 15, 0}
+    });
+
+    b = Matrix({{12}, {17}, {34}, {33}, {7}});
+
+    assert(solveEquations(A, b, x) == ONE_SOLUTION);
+    assert (x == Matrix(vector<vector<double> > {
+        {-600.0 / 49.0}, 
+        {-58.0 / 49.0}, 
+        {-25916.0 / 147.0},
+        {597.0 / 49.0},
+        {2866.0 / 539.0}
+    }));
 
     // Test 4 - No Solution
 
+    A = Matrix({
+        {0, 1, 0, 2, 4},
+        {0, 6, 0, 2, 3},
+        {0, 2, 0, 4, 7},
+        {0, 1, 0, 22, 41}
+    });
 
-    // Test 5 - Infinite Solutions
+    b = Matrix({{4}, {2}, {6}, {32}});
+    assert(solveEquations(A, b, x) == NO_SOLUTION);
+
+    // Test 5 - No Solution
+
+    A = Matrix({
+        {0, 0, 0, 0, 0},
+        {1, 2, 4, 0, 0},
+        {0, 0, 0, 0, 0},
+        {6, 2, 3, 0, 0},
+        {2, 4, 7, 0, 0},
+        {0, 0, 0, 0, 0},
+        {1, 4, 8, 3, 0},
+        {2, 3, 0, 4, 0},
+    });
+
+    b = Matrix({{0}, {4}, {0}, {2}, {6}, {0}, {45}, {91}});
+    assert(solveEquations(A, b, x) == NO_SOLUTION);
 
     // Test 6 - Infinite Solutions
 
+    A = Matrix({
+        {3, 0, 0, 4, 0, 3},
+        {0, 2, 3, 45, 0, 4},
+        {2, 0, 0, 0, 11, 5},
+        {0, 3, 0, 3, 0, 6},
+        {13, 14, 0, 15, 0, 7}
+    });
+
+    b = Matrix({{12}, {17}, {34}, {33}, {7}});
+    assert(solveEquations(A, b, x) == INFINITE_SOLUTIONS);
+
+    // Test 7 - Infinite Solutions
+    A = Matrix({
+        {1, 2, 0, 4},
+        {2, 4, 0, 7},
+        {1, 22, 0, 41}
+    });
+
+    b = Matrix({{4}, {6}, {38}});
+    assert(solveEquations(A, b, x) == INFINITE_SOLUTIONS);
 }
 
 void runTests() {
