@@ -96,6 +96,10 @@ void reduceTest() {
     });
 
     assert (getREF(a) == ref);
+
+    // RREF
+
+    assert(getRREF(a) == Matrix::identity(4));
 }
 
 void runTests() {
