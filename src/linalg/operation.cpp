@@ -1,9 +1,9 @@
-#include <matrix.hpp>
-#include <operation.hpp>
+#include <linalg/matrix.hpp>
+#include <linalg/operation.hpp>
 
 Matrix transpose(const Matrix &mat) {
-    int n = mat.getNumCols();
-    int m = mat.getNumRows();
+    int n = mat.getNumRows();
+    int m = mat.getNumCols();
     Matrix resMat(m, n);
 
     for(int i = 0;i < n;i++) {

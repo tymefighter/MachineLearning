@@ -1,5 +1,5 @@
-#include <matrix.hpp>
-#include <reduce.hpp>
+#include <linalg/matrix.hpp>
+#include <linalg/reduce.hpp>
 
 /** Multiplies ith row with constant c */
 void mulRow(Matrix &mat, int i, double c) {

@@ -1,7 +1,7 @@
 #ifndef REDUCE_HPP
 #define REDUCE_HPP
 
-#include <matrix.hpp>
+#include <linalg/matrix.hpp>
 
 /**
  * Construct a Row Echelon Form matrix from the provided argument.
@@ -23,4 +23,4 @@ Matrix getREF(const Matrix &mat);
  */
 Matrix getRREF(const Matrix &mat);
 
-#endif;
+#endif

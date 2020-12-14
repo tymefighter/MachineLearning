@@ -1,7 +1,7 @@
 #ifndef OPERATION_HPP
 #define OPERATION_HPP
 
-#include <matrix.hpp>
+#include <linalg/matrix.hpp>
 
 Matrix transpose(const Matrix &mat);
 
@@ -13,4 +13,4 @@ Matrix div(const Matrix &a, const Matrix &b);
 
 Matrix inverse(const Matrix &mat);
 
-#endif;
+#endif

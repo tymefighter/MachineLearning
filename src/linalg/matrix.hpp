@@ -6,6 +6,10 @@
 
 using namespace std;
 
+const double EPS = 1e-7;
+
+inline double fabs(double x) {return (x < 0 ? -x : x);}
+
 /** Matrix Error */
 
 class MatError {
@@ -64,7 +68,7 @@ class Matrix {
 
     Matrix(double **mat, int n_, int m_);
 
-    Matrix(const vector<vector<int> > &mat, int n_, int m_);
+    Matrix(const vector<vector<double> > &mat);
 
     Matrix(const Matrix &mat);
 
@@ -76,15 +80,17 @@ class Matrix {
 
     inline Shape getShape() const {return Shape(n, m);}
 
+    bool operator== (const Matrix &mat);
+
     const Matrix& operator= (const Matrix &mat);
 
     double& operator() (int i, int j);
 
     const double& operator() (int i, int j) const;
 
-    Matrix operator+ (Matrix &mat) const;
+    Matrix operator+ (const Matrix &mat) const;
 
-    Matrix operator- (Matrix &mat) const;
+    Matrix operator- (const Matrix &mat) const;
     
     static Matrix identity(int n);
 
@@ -93,4 +99,4 @@ class Matrix {
     static Matrix zeros(int n, int m);
 };
 
-#endif;
+#endif

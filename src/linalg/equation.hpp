@@ -1,7 +1,7 @@
 #ifndef EQUATION_HPP
 #define EQUATION_HPP
 
-#include <matrix.hpp>
+#include <linalg/matrix.hpp>
 
 enum Solution {NO_SOLUTION, ONE_SOLUTION, INFINITE_SOLUTIONS};
 

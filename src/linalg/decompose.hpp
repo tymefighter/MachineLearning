@@ -1,7 +1,7 @@
 #ifndef DECOMPOSE_HPP
 #define DECOMPOSE_HPP
 
-#include <matrix.hpp>
+#include <linalg/matrix.hpp>
 
 void decomposeLU(
     const Matrix &mat, 
