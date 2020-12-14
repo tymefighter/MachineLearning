@@ -21,11 +21,11 @@ void swapRows(Matrix &mat, int i, int j) {
 
 Matrix getREF(const Matrix &mat) {
     int n = mat.getNumRows(), m = mat.getNumCols();
-    Matrix res(n, m);
+    Matrix res(mat);
 
     int i = 0, j = 0;
     while(i < n && j < m) {
-        if(res(i, j) == 0) {
+        if(fabs(res(i, j)) < EPS) {
             int k = i + 1;
 
             while(k < n && res(k, j) == 0)
@@ -49,7 +49,7 @@ Matrix getREF(const Matrix &mat) {
 
 Matrix getRREF(const Matrix &mat) {
     int n = mat.getNumRows(), m = mat.getNumCols();
-    Matrix res(n, m);
+    Matrix res(mat);
 
     int i = 0, j = 0;
     while(i < n && j < m) {

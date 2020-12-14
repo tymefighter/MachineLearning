@@ -1,7 +1,7 @@
 #ifndef MATRIX_HPP
 #define MATRIX_HPP
 
-#include <string>
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -98,5 +98,7 @@ class Matrix {
 
     static Matrix zeros(int n, int m);
 };
+
+ostream& operator<< (ostream& os, const Matrix &mat);
 
 #endif

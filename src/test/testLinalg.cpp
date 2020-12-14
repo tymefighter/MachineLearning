@@ -79,7 +79,23 @@ void operationTest() {
 }
 
 void reduceTest() {
+    Matrix a({
+        {1, 2, 3, 4},
+        {3, 6, 7, 2},
+        {4, 7, 5, -3},
+        {0, 0, 2, 1}
+    });
 
+    // REF
+
+    Matrix ref({
+        {1, 2, 3, 4},
+        {0, -1, -7, -19},
+        {0, 0, -2, -10},
+        {0, 0, 0, -9}
+    });
+
+    assert (getREF(a) == ref);
 }
 
 void runTests() {

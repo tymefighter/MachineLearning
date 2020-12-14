@@ -196,3 +196,17 @@ Matrix Matrix::ones(int n, int m) {
 Matrix Matrix::zeros(int n, int m) {
     return Matrix(n, m);
 }
+
+/** Output Matrix as a Stream */
+
+ostream& operator<< (ostream& os, const Matrix &mat) {
+    int n = mat.getNumRows(), m = mat.getNumCols();
+
+    for(int i = 0;i < n;i++) {
+        for(int j = 0;j < m;j++)
+            os << mat(i, j) << " ";
+        os << "\n";
+    }
+
+    return os;
+}
