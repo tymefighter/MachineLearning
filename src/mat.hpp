@@ -36,6 +36,10 @@ struct Shape {
     inline bool operator== (const Shape &shape) {
         return n == shape.n && m == shape.m;
     }
+
+    inline bool operator!= (const Shape &shape) {
+        return n != shape.n || m != shape.m;
+    }
 };
 
 /** Matrix */
