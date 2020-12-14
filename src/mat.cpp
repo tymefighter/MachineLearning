@@ -31,6 +31,17 @@ const Shape& Shape::operator= (const Shape &shape) {
 Matrix::Matrix():
     n(0), m(0), a(nullptr) {}
 
+Matrix::Matrix(int n_, int m_):
+    n(n_), m(m_) {
+        a = new double *[n];
+
+        for(int i = 0;i < n;i++) {
+            a[i] = new double[m];
+            for(int j = 0;j < m;j++)
+                a[i][j] = 0;
+        }
+    }
+
 Matrix::Matrix(double **mat, int n_, int m_):
     n(n_), m(m_) {
         a = new double *[n];
@@ -70,7 +81,7 @@ Matrix Matrix::operator+ (Matrix &mat) {
     if(n != mat.n || m != mat.m)
         throw MatError("Addition cannot be performed - shapes do not match");
 
-    Matrix resMat = zeros(n, m);
+    Matrix resMat(n, m);
 
     for(int i = 0;i < n;i++) {
         for(int j = 0;j < m;j++)
@@ -84,7 +95,7 @@ Matrix Matrix::operator- (Matrix &mat) {
     if(n != mat.n || m != mat.m)
         throw MatError("Subtraction cannot be performed - shapes do not match");
 
-    Matrix resMat = zeros(n, m);
+    Matrix resMat(n, m);
     
     for(int i = 0;i < n;i++) {
         for(int j = 0;j < m;j++)
@@ -121,13 +132,5 @@ Matrix Matrix::ones(int n, int m) {
 }
 
 Matrix Matrix::zeros(int n, int m) {
-    Matrix mat;
-    mat.n = mat.m = n;
-    mat.a = new double *[n];
-
-    for(int i = 0;i < n;i++) {
-        mat.a[i] = new double[n];
-        for(int j = 0;j < n;j++)
-            mat.a[i][j] = 0;
-    }
+    return Matrix(n, m);
 }

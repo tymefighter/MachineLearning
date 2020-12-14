@@ -51,6 +51,8 @@ class Matrix {
 
     public:
 
+    Matrix(int n_, int m_);
+
     Matrix(double **mat, int n_, int m_);
 
     Matrix(const vector<vector<int> > &mat, int n_, int m_);
