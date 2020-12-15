@@ -4,6 +4,8 @@
 
 using namespace std;
 
+/** Core Matrix Test */
+
 void matrixTest() {
     assert (
         Matrix({
@@ -33,6 +35,25 @@ void matrixTest() {
             {-52.669, 535.74, -4.35, 4.9, 6.0351}
         })
     );
+}
+
+/** Matrix Operations Test */
+
+bool inverseTest(
+    const Matrix &mat, 
+    const Matrix &inv,
+    bool inverseExists
+) {
+    bool testPass;
+
+    try {
+        Matrix invOut = inverse(mat);
+        testPass = inverseExists && (invOut == inv);
+    } catch(MatError &matError) {
+        testPass = !inverseExists;
+    }
+
+    return testPass;
 }
 
 void operationTest() {
@@ -76,7 +97,67 @@ void operationTest() {
     });
     
     assert (div(a, b) == divMat);
+
+    // Inverse
+
+    assert(inverseTest(
+        Matrix({
+            {3, 3, 4, 5},
+            {8, 2, 1, 0},
+            {4, 8, 2, 2},
+            {7, 7, 1, 3}
+        }),
+        Matrix({
+            {
+                -0.003937007874015748043, 
+                0.11417322834645669289, 
+                -0.078740157480314960647, 
+                0.059055118110236220502
+            },
+            {
+                -0.066929133858267716543,
+                -0.059055118110236220435,
+                0.16141732283464566935,
+                0.0039370078740157479517
+            },
+            {
+                0.16535433070866141732,
+                0.20472440944881889775,
+                0.30708661417322834663,
+                -0.48031496062992126005
+            },
+            {
+                0.1102362204724409449,
+                -0.19685039370078740168,
+                -0.29527559055118110252,
+                0.34645669291338582696
+            }
+        }),
+        true
+    ));
+
+    assert(inverseTest(
+        Matrix({
+            {4, 5, 1, 2},
+            {2, 4, 1, 2}
+        }),
+        Matrix(),
+        false
+    ));
+
+    assert(inverseTest(
+        Matrix({
+            {1, 2, 3, 4},
+            {5, 10, 15, 20},
+            {0, 12, 4, 5},
+            {3, 4, 2, 1}
+        }),
+        Matrix(),
+        false
+    ));
 }
+
+/** Matrix Row Reduction Test */
 
 void reduceTest() {
     Matrix a({
@@ -101,6 +182,8 @@ void reduceTest() {
 
     assert(getRREF(a) == Matrix::identity(4));
 }
+
+/** Linear System of Equations Test */
 
 void equationTest() {
 
@@ -205,6 +288,8 @@ void equationTest() {
     b = Matrix({{4}, {6}, {38}});
     assert(solveEquations(A, b, x) == INFINITE_SOLUTIONS);
 }
+
+/** Run Tests */
 
 void runTests() {
     matrixTest();
